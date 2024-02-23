@@ -1,0 +1,18 @@
+public static void dist_sort(int[] x, int n, int z) {
+    Pair[] pairs = new Pair[n];
+    for (int i = 0; i < n; i++) {
+        pairs[i] = new Pair(Math.abs(x[i] - z), x[i]);
+    }
+    Arrays.sort(pairs, (p1, p2) -> Integer.compare(p1.distance, p2.distance));
+    for (int i = 0; i < n; i++) {
+        x[i] = pairs[i].element;
+    }
+}
+static class Pair {
+    int distance;
+    int element;
+    Pair(int distance, int element) {
+        this.distance = distance;
+        this.element = element;
+    }
+}
